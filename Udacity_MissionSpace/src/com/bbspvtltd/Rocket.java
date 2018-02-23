@@ -4,19 +4,12 @@ public class Rocket implements SpaceShip {
 
 	private int cost;
 	// present weight of items on rocket
-	private int presentWeight = 0;
-	private int maxCargoWeight;
+	protected int presentWeight = 0;
+	// Maximum cargo the rocket can carry
+	protected int maxCargoWeight;
 
 	public int getCost() {
 		return cost;
-	}
-
-	public int getPresentWeight() {
-		return presentWeight;
-	}
-
-	public int getMaxCargoWeight() {
-		return maxCargoWeight;
 	}
 
 	// Parameterized Constructor
@@ -27,12 +20,12 @@ public class Rocket implements SpaceShip {
 
 	// Override Methods
 	@Override
-	public boolean land(Item item) {
+	public boolean land() {
 		return true;
 	}
 
 	@Override
-	public boolean launch(Item item) {
+	public boolean launch() {
 		return true;
 	}
 

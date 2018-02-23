@@ -1,7 +1,5 @@
 package com.bbspvtltd;
 
-import com.bbspvtltd.Item;
-
 public class U2 extends Rocket {
 
 	public U2() {
@@ -9,20 +7,14 @@ public class U2 extends Rocket {
 	}
 
 	@Override
-	public boolean launch(Item item) {
-		if (canCarry(item)) {
-			double chance = 0.04 * (getPresentWeight() / this.getMaxCargoWeight());
-			return Math.random() >= chance;
-		} else
-			return false;
+	public boolean launch() {
+		double chance = 0.04 * (presentWeight / maxCargoWeight);
+		return Math.random() >= chance;
 	}
 
 	@Override
-	public boolean land(Item item) {
-		if (canCarry(item)) {
-			double chance = 0.08 * (getPresentWeight() / this.getMaxCargoWeight());
-			return Math.random() >= chance;
-		} else
-			return false;
+	public boolean land() {
+		double chance = 0.08 * (presentWeight / maxCargoWeight);
+		return Math.random() >= chance;
 	}
 }
