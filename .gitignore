@@ -22,6 +22,7 @@
 hs_err_pid*
 /.metadata/
 /.recommenders/
+<<<<<<< HEAD
 *.recommenders/*
 *.metadata/*
 
@@ -30,3 +31,11 @@ hs_err_pid*
 
 # Dolphin Files
 *.directory
+=======
+/.directory/
+*.recommenders
+*.directory
+
+# Windows files
+/RemoteSystemsTempFiles/
+>>>>>>> 6dcb64d7e2272569828aa3b8b9032c48ab52a5cf

@@ -3,64 +3,19 @@ package com.bbspvtltd;
 public class Rocket implements SpaceShip {
 
 	private int cost;
-	private int presentWeight;
-	private int weight;
-	private int cargo;
-	private int totalWeight;
+	// present weight of items on rocket
+	protected int presentWeight = 0;
+	// Maximum cargo the rocket can carry
+	protected int maxCargoWeight;
 
 	public int getCost() {
 		return cost;
 	}
 
-	public void setCost(int cost) {
-		this.cost = cost;
-	}
-
-	public int getPresentWeight() {
-		return presentWeight;
-	}
-
-	public void setPresentWeight(int presentWeight) {
-		this.presentWeight = presentWeight;
-	}
-
-	public int getWeight() {
-		return weight;
-	}
-
-	public void setWeight(int weight) {
-		this.weight = weight;
-	}
-
-	public int getCargo() {
-		return cargo;
-	}
-
-	public void setCargo(int cargo) {
-		this.cargo = cargo;
-	}
-
-	public int getTotalWeight() {
-		totalWeight = getPresentWeight() + getWeight();
-		return totalWeight;
-	}
-
-	public void setTotalWeight(int totalWeight) {
-		this.totalWeight = totalWeight;
-	}
-
-	// Default Constructor
-	public Rocket() {
-
-	}
-
 	// Parameterized Constructor
-	public Rocket(int cost, int presentWeight, int weight, int cargo, int totalWeight) {
+	public Rocket(int cost, int maxCargoWeight) {
 		this.cost = cost;
-		this.presentWeight = presentWeight;
-		this.weight = weight;
-		this.cargo = cargo;
-		this.totalWeight = totalWeight;
+		this.maxCargoWeight = maxCargoWeight;
 	}
 
 	// Override Methods
@@ -74,9 +29,13 @@ public class Rocket implements SpaceShip {
 		return true;
 	}
 
+	// Check if current cargo weight doesn't exceed max cargo weight
 	@Override
 	public boolean canCarry(Item item) {
-		return false;
+		if ((presentWeight + item.getWeight()) > maxCargoWeight)
+			return false;
+		else
+			return true;
 	}
 
 	@Override
